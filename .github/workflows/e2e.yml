@@ -1,4 +1,4 @@
-name: "E2E Test"
+name: "Cypress Tests"
 on: [workflow_dispatch]
 #on: [push]
 jobs:
