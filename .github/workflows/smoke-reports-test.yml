@@ -14,6 +14,7 @@ jobs:
           quiet: false
           browser: chrome
           headless: true
+          working-directory: /home/runner/work/trade-tariff-testing/trade-tariff-testing
           spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
       - run: |
           cd /home/runner/work/trade-tariff-testing/trade-tariff-testing
