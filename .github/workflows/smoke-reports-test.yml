@@ -3,7 +3,6 @@ name: "Reports"
 on: [push]
 jobs:
   cypress-run:
-    defaults:
     name: Reporting test
     runs-on: ubuntu-18.04
     strategy:
