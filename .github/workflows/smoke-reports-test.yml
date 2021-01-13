@@ -8,9 +8,9 @@ jobs:
     strategy:
       fail-fast: true
     steps:
+      - uses: actions/checkout@v2
       - run: env
       - run: echo $GITHUB_TOKEN
-        - uses: actions/checkout@v2
       - uses: cypress-io/github-action@v2
         with:
           quiet: false
