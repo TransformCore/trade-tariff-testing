@@ -18,6 +18,7 @@ jobs:
           spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
       - run: |
           cd /home/runner/work/trade-tariff-testing/trade-tariff-testing
+          mkdir -p cypress/reports/mochareports
           pwd
           ls -l
           find  ./cypress
