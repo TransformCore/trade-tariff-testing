@@ -19,8 +19,8 @@ jobs:
         with:
           name: report
           path: mochawesome-report/
-          if-no-files-found: error
       - run: |
+          ls -l
           DATE=$(date +%m-%d-%Y)
           mkdir -p docs/$DATE
           cp -r mochawesome-report/  docs/$DATE/
