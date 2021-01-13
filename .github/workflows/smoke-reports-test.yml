@@ -8,16 +8,15 @@ jobs:
     strategy:
       fail-fast: true
     steps:
-      - uses: actions/checkout@v2
+      - run: env
+      - run: echo $GITHUB_TOKEN
+        - uses: actions/checkout@v2
       - uses: cypress-io/github-action@v2
         with:
           quiet: false
           browser: chrome
           headless: true
           spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
-      - run: ls -lr
-      - run: ls -l
-      - run: echo $GITHUB_TOKEN
       - uses: actions/upload-artifact@v2
         with:
           name: report
