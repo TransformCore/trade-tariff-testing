@@ -15,7 +15,9 @@ jobs:
           browser: chrome
           headless: true
           spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
+      - run: ls -lr
       - uses: actions/upload-artifact@v2
         with:
           name: reports
           path: mochawesome-report/
+          if-no-files-found: error
