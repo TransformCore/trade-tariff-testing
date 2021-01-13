@@ -3,7 +3,7 @@ name: "Reports"
 on: [push]
 jobs:
   cypress-run:
-    name: E2E on Chrome
+    name: Reporting test
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: true
