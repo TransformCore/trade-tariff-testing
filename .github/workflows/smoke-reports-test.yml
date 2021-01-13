@@ -10,7 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: env
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - run: echo $GITHUB_TOKEN
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
       - uses: cypress-io/github-action@v2
         with:
           quiet: false
