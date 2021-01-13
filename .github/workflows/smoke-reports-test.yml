@@ -21,7 +21,9 @@ jobs:
           path: mochawesome-report/
           if-no-files-found: error
       - run: |
-          cp -r mochawesome-report/  docs/
+          DATE=$(date +%m-%d-%Y)
+          mkdir -p docs/$DATE
+          cp -r mochawesome-report/  docs/$DATE/
           git add docs .
       - name: Publish page
         run: |
