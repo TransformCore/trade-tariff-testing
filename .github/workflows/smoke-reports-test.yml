@@ -9,8 +9,6 @@ jobs:
       fail-fast: true
     steps:
       - uses: actions/checkout@v2
-      - run: env
-      - run: echo $GITHUB_TOKEN
       - uses: cypress-io/github-action@v2
         with:
           quiet: false
@@ -22,3 +20,17 @@ jobs:
           name: report
           path: mochawesome-report/
           if-no-files-found: error
+      - run: |
+          cp -r mochawesome-report/  docs/
+          git add docs .
+      - name: Publish page
+        run: |
+          git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Add changes" -a
+      - run:
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: reports
