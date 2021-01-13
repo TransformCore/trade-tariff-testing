@@ -11,6 +11,9 @@ jobs:
     strategy:
       fail-fast: true
     steps:
+      - run: |
+          pwd
+          ls -l
       - uses: actions/checkout@v2
       - uses: cypress-io/github-action@v2
         with:
@@ -24,7 +27,6 @@ jobs:
           name: report
           path: mochawesome-report/
       - run: |
-          ls -l
           DATE=$(date +%m-%d-%Y)
           mkdir -p docs/$DATE
           cp -r mochawesome-report/  docs/$DATE/
