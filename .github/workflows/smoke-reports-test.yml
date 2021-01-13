@@ -14,14 +14,7 @@ jobs:
           quiet: false
           browser: chrome
           headless: true
-          working-directory: /home/runner/work/trade-tariff-testing/trade-tariff-testing
-          spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
       - run: |
-          cd /home/runner/work/trade-tariff-testing/trade-tariff-testing
-          mkdir -p cypress/reports/mochareports
-          pwd
-          ls -l
-          find  ./cypress
           npm run combine-reports
           npm run generate-report
       - uses: actions/upload-artifact@v2
@@ -29,7 +22,6 @@ jobs:
           name: report
           path: mochawesome-report/
       - run: |
-          cd /home/runner/work/trade-tariff-testing/trade-tariff-testing
           DATE=$(date +%m-%d-%Y)
           mkdir -p docs/$DATE
           cp -r mochawesome-report/  docs/$DATE/
