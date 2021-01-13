@@ -16,10 +16,9 @@ jobs:
           headless: true
           spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
       - run: |
+          cd /home/runner/work/trade-tariff-testing/trade-tariff-testing
           pwd
           ls -l
-      - run: |
-          cd /home/runner/work/trade-tariff-testing/trade-tariff-testing
           npm run combine-reports && npm run generate-report
       - uses: actions/upload-artifact@v2
         with:
