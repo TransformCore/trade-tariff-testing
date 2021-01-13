@@ -15,10 +15,12 @@ jobs:
           browser: chrome
           headless: true
           spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
-      - name: Merge test results into one
-        run: npm run report:merge
-      - name: Generate HTML report
-        run: npm run report:generate
+      - run: |
+          cd /home/runner/work/trade-tariff-testing/trade-tariff-testing
+          pwd
+          ls -l
+          npm run combine-reports
+          npm run generate-report
       - uses: actions/upload-artifact@v2
         with:
           name: report
