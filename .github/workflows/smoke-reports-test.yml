@@ -19,7 +19,7 @@ jobs:
           cd /home/runner/work/trade-tariff-testing/trade-tariff-testing
           pwd
           ls -l
-          ls -l cypress/reports/mochareports/
+          find  ./cypress
           npm run combine-reports
           npm run generate-report
       - uses: actions/upload-artifact@v2
