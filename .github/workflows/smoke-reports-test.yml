@@ -19,12 +19,12 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: report
-          path: mochawesome-report/
+          path: ./mochawesome-report/
       - run: |
           ls -l
           DATE=$(date +%m-%d-%Y)
           mkdir -p docs/$DATE
-          cp -r mochawesome-report/  docs/$DATE/
+          cp -r ./mochawesome-report/  docs/$DATE/
           git add docs .
       - run: |
           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
