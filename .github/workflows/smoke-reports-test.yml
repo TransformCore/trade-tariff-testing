@@ -17,8 +17,11 @@ jobs:
           spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
       - run: ls -lr
       - run: ls -l
+      - run: echo $GITHUB_TOKEN
       - uses: actions/upload-artifact@v2
         with:
-          name: reports
-          path: mochawesome-report/
+          name: report
+          path:
+          - mochawesome-report/
+          - cypress
           if-no-files-found: error
