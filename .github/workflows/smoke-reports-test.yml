@@ -8,9 +8,6 @@ jobs:
     strategy:
       fail-fast: true
     steps:
-      - run: |
-          pwd
-          ls -l
       - uses: actions/checkout@v2
       - uses: cypress-io/github-action@v2
         with:
@@ -18,6 +15,9 @@ jobs:
           browser: chrome
           headless: true
           spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
+      - run: |
+          pwd
+          ls -l
       - run: |
           cd /home/runner/work/trade-tariff-testing/trade-tariff-testing
           npm run combine-reports && npm run generate-report
