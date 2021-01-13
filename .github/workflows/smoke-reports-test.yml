@@ -16,6 +16,7 @@ jobs:
           headless: true
           spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
       - run: ls -lr
+      - run: ls -l
       - uses: actions/upload-artifact@v2
         with:
           name: reports
