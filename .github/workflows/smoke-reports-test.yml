@@ -5,7 +5,7 @@ jobs:
   cypress-run:
     defaults:
       run:
-        working-directory: /home/runner/work/trade-tariff-testing/
+        working-directory: /home/runner/work/trade-tariff-testing/trade-tariff-testing
     name: Reporting test
     runs-on: ubuntu-18.04
     strategy:
