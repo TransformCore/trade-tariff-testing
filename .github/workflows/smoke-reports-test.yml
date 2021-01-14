@@ -9,22 +9,23 @@ jobs:
       fail-fast: true
     steps:
       - uses: actions/checkout@v2
-      - uses: cypress-io/github-action@v2
-        with:
-          quiet: false
-          browser: chrome
-          headless: true
+#      - uses: cypress-io/github-action@v2
+#         with:
+#           quiet: false
+#           browser: chrome
+#           headless: true
+#      - run: |
+#          ls -l
+#          find  ./cypress
+#          npm run combine-reports
+#          npm run generate-report
+#      - uses: actions/upload-artifact@v2
+#        with:
+#          name: report
+#          path: mochawesome-report/
       - run: |
-          npm run combine-reports
-          npm run generate-report
-      - uses: actions/upload-artifact@v2
-        with:
-          name: report
-          path: mochawesome-report/
-      - run: |
-          DATE=$(date +%m-%d-%Y)
-          mkdir -p docs/$DATE
-          cp -r mochawesome-report/  docs/$DATE/
+          mkdir -p docs
+          echo "hello" > page.html
           git add docs .
       - run: |
           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
