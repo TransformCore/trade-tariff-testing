@@ -21,7 +21,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           name: report
-          path: /cypress/reports/mochareports/
+          path: ./cypress/reports/mochareports/
 #      - run: |
 #          DATE=$(date +%m-%d-%Y)
 #          mkdir -p docs/$DATE
