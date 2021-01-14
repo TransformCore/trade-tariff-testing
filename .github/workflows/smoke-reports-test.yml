@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-        with: branch
       - uses: cypress-io/github-action@v2
         with:
           quiet: false
