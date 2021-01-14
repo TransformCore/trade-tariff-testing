@@ -1,8 +1,8 @@
 name: "Reports"
-#on: [workflow_dispatch]
-on:
-  schedule:
-    - cron:  '0 * * * *'
+on: [push]
+#on:
+#  schedule:
+#    - cron:  '0 * * * *'
 jobs:
   cypress-run:
     name: Scheduled hourly run
