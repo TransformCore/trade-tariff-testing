@@ -25,7 +25,7 @@ jobs:
 #          path: mochawesome-report/
       - run: |
           mkdir -p docs
-          echo "hello" > page.html
+          echo "hello" > docs/page.html
           git add docs .
       - run: |
           git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
