@@ -1,40 +1,37 @@
 name: "Reports"
 #on: [workflow_dispatch]
-on: [push]
+on:
+  schedule:
+    - cron:  '0 * * * *'
 jobs:
   cypress-run:
-    name: Reporting test
+    name: Scheduled hourly run
     runs-on: ubuntu-18.04
-    strategy:
-      fail-fast: true
     steps:
       - uses: actions/checkout@v2
-#      - uses: cypress-io/github-action@v2
-#         with:
-#           quiet: false
-#           browser: chrome
-#           headless: true
-#      - run: |
-#          ls -l
-#          find  ./cypress
-#          npm run combine-reports
-#          npm run generate-report
-#      - uses: actions/upload-artifact@v2
-#        with:
-#          name: report
-#          path: mochawesome-report/
-      - run: |
-          mkdir -p docs
-          echo "hello" > docs/page.html
-          git add docs .
-      - run: |
-          git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git commit -m "Add changes" -a
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+        with: branch
+      - uses: cypress-io/github-action@v2
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: reports
-          force: true
-
+          quiet: false
+          browser: chrome
+          headless: true
+          spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
+      - run: npm run posttests
+      - uses: actions/upload-artifact@v2
+        with:
+          name: report
+          path: mochawesome-report/
+#      - run: |
+#          DATE=$(date +%m-%d-%Y)
+#          mkdir -p docs/$DATE
+#          cp -r mochawesome-report/  docs/$DATE/
+#          git add docs .
+#      - run: |
+#          git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
+#          git config --local user.name "github-actions[bot]"
+#          git commit -m "Add changes" -a
+#      - name: Push changes
+#        uses: ad-m/github-push-action@master
+#        with:
+#          github_token: ${{ secrets.GITHUB_TOKEN }}
+#          branch: reports
