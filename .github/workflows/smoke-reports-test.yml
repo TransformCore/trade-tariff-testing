@@ -22,17 +22,19 @@ jobs:
         with:
           name: report
           path: ./cypress/reports/mochareports/
-#      - run: |
-#          DATE=$(date +%m-%d-%Y)
-#          mkdir -p docs/$DATE
-#          cp -r mochawesome-report/  docs/$DATE/
-#          git add docs .
-#      - run: |
-#          git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
-#          git config --local user.name "github-actions[bot]"
-#          git commit -m "Add changes" -a
-#      - name: Push changes
-#        uses: ad-m/github-push-action@master
-#        with:
-#          github_token: ${{ secrets.GITHUB_TOKEN }}
-#          branch: reports
+      - run: |
+          DATE=$(date +%m-%d-%Y)
+          mkdir -p docs/$DATE
+          cp -r ./cypress/reports/mochareports/*  docs/$DATE/
+          cp ./cypress/reports/mochareports/report.html docs/$DATE/index.html
+          git add docs .
+      - run: |
+          git config --local user.email "tradetarrif+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git commit -m "Add changes" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: reports
+          force: true
