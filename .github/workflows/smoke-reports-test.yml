@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
-      - run: mkdir cypress/reports/mochareports
+      - run: mkdir -p cypress/reports/mochareports
       - uses: cypress-io/github-action@v2
         with:
           quiet: false
