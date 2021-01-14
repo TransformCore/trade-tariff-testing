@@ -15,7 +15,7 @@ jobs:
           quiet: false
           browser: chrome
           headless: true
-          spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
+          spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-UK.spec.js"
       - run: npm run posttests
       - uses: actions/upload-artifact@v2
         with:
