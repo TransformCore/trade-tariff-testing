@@ -17,10 +17,11 @@ jobs:
           headless: true
           spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
       - run: npm run posttests
+      - run: ls -l
       - uses: actions/upload-artifact@v2
         with:
           name: report
-          path: mochawesome-report/
+          path: /cypress/reports/mochareports/
 #      - run: |
 #          DATE=$(date +%m-%d-%Y)
 #          mkdir -p docs/$DATE
