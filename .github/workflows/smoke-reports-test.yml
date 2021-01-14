@@ -9,17 +9,14 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@v2
+      - run: mkdir cypress/reports/mochareports
       - uses: cypress-io/github-action@v2
         with:
           quiet: false
           browser: chrome
           headless: true
           spec: "*/**/smokeTest-XI.spec.js,*/**/smokeTest-NUK.spec.js"
-      - run: |
-          pwd
-          ls -l
-          find .
-          npm run posttests
+      - run: npm run posttests
       - uses: actions/upload-artifact@v2
         with:
           name: report
