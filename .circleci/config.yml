@@ -8,9 +8,11 @@ workflows:
           name: "UK Smoke tests"
           executor: cypress/browsers-chrome77
           browser: chrome
+          store_artifacts: true
           spec: "*/**/smokeTest-UK.spec.js"
       - cypress/run:
           name: "XI Smoke tests"
           executor: cypress/browsers-chrome77
           browser: chrome
+          store_artifacts: true
           spec: "*/**/smokeTest-XI.spec.js"
