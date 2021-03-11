@@ -45,7 +45,7 @@ workflows:
                         }
                       ]
                     }
-               event: always
+                event: always
 
       - cypress/run:
           context: trade-tariff
