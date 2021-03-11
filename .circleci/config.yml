@@ -40,7 +40,6 @@ workflows:
                             },
                             "value": "click_me_123",
                             "url": "https://${CIRCLE_BUILD_NUM}-319393790-gh.circle-artifacts.com/${CIRCLE_NODE_INDEX}/cypress/reports/mochareports/report.html",
-                            "action_id": "button-action"
                           }
                         }
                       ]
@@ -81,7 +80,6 @@ workflows:
                           },
                           "value": "click_me_123",
                           "url": "https://${CIRCLE_BUILD_NUM}-319393790-gh.circle-artifacts.com/${CIRCLE_NODE_INDEX}/cypress/reports/mochareports/report.html",
-                          "action_id": "button-action"
                         }
                       }
                     ]
