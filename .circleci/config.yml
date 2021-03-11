@@ -7,6 +7,7 @@ workflows:
   build:
     jobs:
       - cypress/run:
+          context: trade-tariff
           name: "UK Smoke tests"
           executor: cypress/browsers-chrome77
           browser: chrome
@@ -39,6 +40,7 @@ workflows:
                 event: always
 
       - cypress/run:
+          context: trade-tariff
           name: "XI Smoke tests"
           executor: cypress/browsers-chrome77
           browser: chrome
