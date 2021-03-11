@@ -3,30 +3,6 @@ orbs:
   cypress: cypress-io/cypress@1.27.0
   slack: circleci/slack@4.1
 
-jobs:
-  notify:
-    docker:
-      - image: 'cimg/base:stable'
-    steps:
-      - slack/notify:
-          channel: tariffs-etl
-          custom: |
-            {
-              "blocks": [
-                {
-                  "type": "section",
-                  "fields": [
-                    {
-                      "type": "plain_text",
-                      "text": "*This is a text notification*",
-                      "emoji": true
-                    }
-                  ]
-                }
-              ]
-            }
-          event: always
-
 workflows:
   build:
     jobs:
@@ -43,6 +19,25 @@ workflows:
                 path: cypress/results
             - store_artifacts:
                 path: cypress/reports
+            - slack/notify:
+                channel: tariffs-etl
+                custom: |
+                  {
+                    "blocks": [
+                      {
+                        "type": "section",
+                        "fields": [
+                          {
+                            "type": "plain_text",
+                            "text": "*UK Report*",
+                            "emoji": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                event: always
+
       - cypress/run:
           name: "XI Smoke tests"
           executor: cypress/browsers-chrome77
@@ -56,5 +51,21 @@ workflows:
                 path: cypress/results
             - store_artifacts:
                 path: cypress/reports
-      - notify:
-          context: trade-tariff
+            - slack/notify:
+                channel: tariffs-etl
+                custom: |
+                  {
+                    "blocks": [
+                      {
+                        "type": "section",
+                        "fields": [
+                          {
+                            "type": "plain_text",
+                            "text": "*XI Report*",
+                            "emoji": true
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                event: always
