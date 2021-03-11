@@ -29,7 +29,7 @@ workflows:
                         "fields": [
                           {
                             "type": "plain_text",
-                            "text": "*UK Report*",
+                            "text": "*UK Report* https://${CIRCLE_BUILD_NUM}-319393790-gh.circle-artifacts.com/${CIRCLE_NODE_INDEX}/cypress/reports/mochareports/report.html",
                             "emoji": true
                           }
                         ]
@@ -61,7 +61,7 @@ workflows:
                         "fields": [
                           {
                             "type": "plain_text",
-                            "text": "*XI Report*",
+                            "text": "*XI Report* https://${CIRCLE_BUILD_NUM}-319393790-gh.circle-artifacts.com/${CIRCLE_NODE_INDEX}/cypress/reports/mochareports/report.html",
                             "emoji": true
                           }
                         ]
