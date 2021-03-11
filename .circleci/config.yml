@@ -16,7 +16,7 @@ workflows:
             - store_test_results:
                 path: cypress/results
             - store_artifacts:
-                path: mochawesome-report
+                path: cypress/reports
       - cypress/run:
           name: "XI Smoke tests"
           executor: cypress/browsers-chrome77
@@ -29,4 +29,4 @@ workflows:
             - store_test_results:
                 path: cypress/results
             - store_artifacts:
-                path: mochawesome-report
+                path: cypress/reports
