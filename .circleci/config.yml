@@ -11,6 +11,7 @@ workflows:
           store_artifacts: true
           spec: "*/**/smokeTest-UK.spec.js"
           post-steps:
+            - run: mkdir -p cypress/reports/mochareports
             - run: npm run combine-reports && npm run generate-report
             - store_test_results:
                 path: cypress/results
@@ -23,6 +24,7 @@ workflows:
           store_artifacts: true
           spec: "*/**/smokeTest-XI.spec.js"
           post-steps:
+            - run: mkdir -p cypress/reports/mochareports
             - run: npm run combine-reports && npm run generate-report
             - store_test_results:
                 path: cypress/results
