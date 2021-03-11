@@ -1,0 +1,7 @@
+version: 2.1
+orbs:
+  node: cypress-io/cypress@1.27.0
+workflows:
+  build:
+    jobs:
+      - cypress/run
