@@ -11,6 +11,8 @@ workflows:
           store_artifacts: true
           spec: "*/**/smokeTest-UK.spec.js"
           post-steps:
+            - store_test_results:
+                path: cypress/results
             - store_artifacts:
                 path: mochawesome-report
       - cypress/run:
@@ -20,5 +22,7 @@ workflows:
           store_artifacts: true
           spec: "*/**/smokeTest-XI.spec.js"
           post-steps:
+            - store_test_results:
+                path: cypress/results
             - store_artifacts:
                 path: mochawesome-report
