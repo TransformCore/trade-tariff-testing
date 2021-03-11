@@ -23,21 +23,29 @@ workflows:
             - slack/notify:
                 channel: tariffs-etl
                 custom: |
-                  {
-                    "blocks": [
-                      {
-                        "type": "section",
-                        "fields": [
-                          {
-                            "type": "plain_text",
-                            "text": "*UK Report* https://${CIRCLE_BUILD_NUM}-319393790-gh.circle-artifacts.com/${CIRCLE_NODE_INDEX}/cypress/reports/mochareports/report.html",
-                            "emoji": true
+                    {
+                      "blocks": [
+                        {
+                          "type": "section",
+                          "text": {
+                            "type": "mrkdwn",
+                            "text": "UK Smoke tests"
+                          },
+                          "accessory": {
+                            "type": "button",
+                            "text": {
+                              "type": "plain_text",
+                              "text": "Report",
+                              "emoji": true
+                            },
+                            "value": "click_me_123",
+                            "url": "https://${CIRCLE_BUILD_NUM}-319393790-gh.circle-artifacts.com/${CIRCLE_NODE_INDEX}/cypress/reports/mochareports/report.html",
+                            "action_id": "button-action"
                           }
-                        ]
-                      }
-                    ]
-                  }
-                event: always
+                        }
+                      ]
+                    }
+               event: always
 
       - cypress/run:
           context: trade-tariff
@@ -60,13 +68,21 @@ workflows:
                     "blocks": [
                       {
                         "type": "section",
-                        "fields": [
-                          {
+                        "text": {
+                          "type": "mrkdwn",
+                          "text": "XI Smoke tests"
+                        },
+                        "accessory": {
+                          "type": "button",
+                          "text": {
                             "type": "plain_text",
-                            "text": "*XI Report* https://${CIRCLE_BUILD_NUM}-319393790-gh.circle-artifacts.com/${CIRCLE_NODE_INDEX}/cypress/reports/mochareports/report.html",
+                            "text": "Report",
                             "emoji": true
-                          }
-                        ]
+                          },
+                          "value": "click_me_123",
+                          "url": "https://${CIRCLE_BUILD_NUM}-319393790-gh.circle-artifacts.com/${CIRCLE_NODE_INDEX}/cypress/reports/mochareports/report.html",
+                          "action_id": "button-action"
+                        }
                       }
                     ]
                   }
